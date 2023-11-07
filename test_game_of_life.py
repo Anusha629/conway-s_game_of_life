@@ -31,3 +31,18 @@ def test_update_grid_die():
     ]
     new_grid = game_of_life.update_grid(grid)
     assert new_grid == expected_grid
+
+def test_update_grid_reproduction():
+    grid = [
+        [0, 1, 0],
+        [1, 0, 0],
+        [0, 0, 1]
+    ]
+    
+    expected_grid = [
+        [0, 1, 0],
+        [1, 1, 0],
+        [0, 0, 1]
+    ]
+    new_grid = game_of_life.update_grid(grid)
+    assert not new_grid == expected_grid

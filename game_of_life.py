@@ -31,3 +31,4 @@ def update_grid(grid):
                 if live_neighbors == 3:
                     new_grid[i][j] = 1
     return new_grid
+
