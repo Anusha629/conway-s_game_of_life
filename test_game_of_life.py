@@ -60,3 +60,13 @@ def test_update_grid_stable_pattern():
         [0, 1, 0]
     ]
     assert updated_grid == expected_grid
+
+def test_update_grid_no_live_neighbors():
+    grid = [
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 0, 0]
+    ]
+    updated_grid = game_of_life.update_grid(grid)
+    expected_grid = [[0] * len(grid[0]) for _ in range(len(grid))]
+    assert updated_grid == expected_grid
