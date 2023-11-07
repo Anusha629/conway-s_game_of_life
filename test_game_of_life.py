@@ -46,3 +46,17 @@ def test_update_grid_reproduction():
     ]
     new_grid = game_of_life.update_grid(grid)
     assert not new_grid == expected_grid
+
+def test_update_grid_stable_pattern():
+    grid = [
+        [0, 1, 0],
+        [1, 0, 1],
+        [0, 1, 0]
+    ]
+    updated_grid = game_of_life.update_grid(grid)
+    expected_grid = [
+        [0, 1, 0],
+        [1, 0, 1],
+        [0, 1, 0]
+    ]
+    assert updated_grid == expected_grid
