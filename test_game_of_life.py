@@ -70,3 +70,13 @@ def test_update_grid_no_live_neighbors():
     updated_grid = game_of_life.update_grid(grid)
     expected_grid = [[0] * len(grid[0]) for _ in range(len(grid))]
     assert updated_grid == expected_grid
+
+def test_update_grid_edge_wrap_around():
+    grid = [
+        [1, 0, 1],
+        [0, 1, 0],
+        [1, 0, 1]
+    ]
+    updated_grid = game_of_life.update_grid(grid)
+    expected_grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+    assert not updated_grid == expected_grid
