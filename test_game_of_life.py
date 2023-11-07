@@ -16,3 +16,18 @@ def test_update_grid_no_changes():
     expected_grid = game_of_life.get_empty_grid(game_of_life.WIDTH, game_of_life.HEIGHT)
     new_grid = game_of_life.update_grid(grid)
     assert new_grid == expected_grid
+
+def test_update_grid_die():
+    grid = [
+        [1, 1, 1],
+        [1, 1, 0],
+        [0, 0, 0]
+    ]
+    
+    expected_grid = [
+        [1, 0, 1],
+        [1, 0, 1],
+        [0, 0, 0]
+    ]
+    new_grid = game_of_life.update_grid(grid)
+    assert new_grid == expected_grid
