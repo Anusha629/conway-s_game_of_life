@@ -100,3 +100,20 @@ def test_initialize_grid():
     for row in grid:
         for cell in row:
             assert cell == False
+
+def test_toggle_cell():
+    grid = [[False] * 10 for _ in range(10)]
+    grid[5][3] = True
+    assert grid[5][3] == True
+
+def test_toggle_cell_again():
+    grid = [[False] * 10 for _ in range(10)]
+    grid[5][3] = True
+    grid[5][3] = False
+    assert grid[5][3] == False
+
+def test_start_simulation():
+    global simulation_active
+    simulation_active = False
+    game_of_life.start_simulation()
+    assert simulation_active == False

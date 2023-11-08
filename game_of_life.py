@@ -46,6 +46,10 @@ def display_grid(grid):
                 canvas.itemconfig(cells[i][j], fill=DEAD_CELL_COLOR)
     root.update()
 
+def initialize_and_display_grid():
+    global grid
+    grid = get_empty_grid(WIDTH, HEIGHT)
+    display_grid(grid)
 
 root = tk.Tk()
 root.title("Game of Life")
@@ -62,7 +66,10 @@ for i in range(HEIGHT):
     for j in range(WIDTH):
         cells[i][j] = canvas.create_rectangle(j * CELL_SIZE, i * CELL_SIZE, (j + 1) * CELL_SIZE, (i + 1) * CELL_SIZE, fill="white")
 
-def initialize_and_display_grid():
-    global grid
-    grid = get_empty_grid(WIDTH, HEIGHT)
+def toggle_cell(event):
+    x, y = event.x // CELL_SIZE, event.y // CELL_SIZE
+    grid[y][x] = 1 - grid[y][x]
     display_grid(grid)
+
+
+
