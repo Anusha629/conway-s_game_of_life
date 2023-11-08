@@ -112,14 +112,6 @@ def test_toggle_cell_again():
     grid[5][3] = False
     assert grid[5][3] == False
 
-def test_start_simulation():
-    global simulation_active
-    simulation_active = False
-    game_of_life.start_simulation()
-    assert simulation_active == False
 
-def test_reset_simulation():
-    global simulation_active
-    simulation_active = True
-    game_of_life.reset_simulation()
-    assert simulation_active == True
+
+

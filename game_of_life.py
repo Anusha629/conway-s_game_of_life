@@ -65,6 +65,7 @@ cells = [[None for _ in range(WIDTH)] for _ in range(HEIGHT)]
 for i in range(HEIGHT):
     for j in range(WIDTH):
         cells[i][j] = canvas.create_rectangle(j * CELL_SIZE, i * CELL_SIZE, (j + 1) * CELL_SIZE, (i + 1) * CELL_SIZE, fill="white")
+        
 
 def toggle_cell(event):
     x, y = event.x // CELL_SIZE, event.y // CELL_SIZE
@@ -74,9 +75,34 @@ def toggle_cell(event):
 def start_simulation():
     global simulation_active
     simulation_active = True
+    run_game()
 
 def reset_simulation():
     global simulation_active
     simulation_active = False
     initialize_and_display_grid()
 
+start_button = ttk.Button(frame, text="Start", command=start_simulation)
+start_button.grid(row=1, column=0, padx=10)
+reset_button = ttk.Button(frame, text="Reset", command=reset_simulation)
+reset_button.grid(row=1, column=1, padx=10)
+
+simulation_active = False
+initialize_and_display_grid()
+
+canvas.bind("<Button-1>", toggle_cell)
+
+def initialize_and_display_grid():
+    global grid
+    if canvas.winfo_exists():
+        display_grid(grid)
+    else:
+        pass
+
+def run_game():
+    if simulation_active:
+        global grid
+        grid = update_grid(grid)
+        display_grid(grid)
+        root.after(200, run_game)
+root.mainloop()
