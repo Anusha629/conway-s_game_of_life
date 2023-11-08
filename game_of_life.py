@@ -71,5 +71,7 @@ def toggle_cell(event):
     grid[y][x] = 1 - grid[y][x]
     display_grid(grid)
 
-
+def start_simulation():
+    global simulation_active
+    simulation_active = True
 
