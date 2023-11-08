@@ -75,4 +75,8 @@ def start_simulation():
     global simulation_active
     simulation_active = True
 
+def reset_simulation():
+    global simulation_active
+    simulation_active = False
+    initialize_and_display_grid()
 
