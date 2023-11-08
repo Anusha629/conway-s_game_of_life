@@ -94,3 +94,9 @@ def test_update_grid_border_cells():
         [0, 1, 0]
     ]
     assert updated_grid == expected_grid
+
+def test_initialize_grid():
+    grid = [[False] * 10 for _ in range(10)]
+    for row in grid:
+        for cell in row:
+            assert cell == False
