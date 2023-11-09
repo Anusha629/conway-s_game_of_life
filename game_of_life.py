@@ -105,4 +105,6 @@ def run_game():
         grid = update_grid(grid)
         display_grid(grid)
         root.after(200, run_game)
-root.mainloop()
+
+if __name__ == "__main__":
+    root.mainloop()
